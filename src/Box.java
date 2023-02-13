@@ -36,14 +36,7 @@ public class Box <T extends Fruit> {
     }
 
     public String getTitle() {
-        String str = "";
-        for (T t : list) {
-            str = t.getTitle();
-            break;
-        }
-        if (list.size() == 0)
-            return "Коробка пуста";
-        else
-            return str.toString();
+        return list.size() == 0? "Коробка пуста" : list.get(0).getTitle();
+
     }
 }
