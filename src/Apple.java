@@ -1,7 +1,7 @@
-public class Apple extends Fruit{
+public class Apple extends Fruit {
 
-    public Apple(double weight) {
-        super(weight);
+    public Apple(String title, double weight) {
+        super(title, weight);
 
     }
 }

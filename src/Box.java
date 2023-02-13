@@ -34,4 +34,16 @@ public class Box <T extends Fruit> {
         anotherBox.list.addAll(list);
         list.clear();
     }
+
+    public String getTitle() {
+        String str = "";
+        for (T t : list) {
+            str = t.getTitle();
+            break;
+        }
+        if (list.size() == 0)
+            return "Коробка пуста";
+        else
+            return str.toString();
+    }
 }

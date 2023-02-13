@@ -1,7 +1,7 @@
 public class GoldenApple extends Apple {
 
-    public GoldenApple(double weight) {
-        super(weight);
+    public GoldenApple(String title, double weight) {
+        super(title, weight);
 
     }
 }
