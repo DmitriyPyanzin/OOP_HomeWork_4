@@ -1,4 +1,7 @@
-public class Box /* <FIXME: Указать дженерик> */{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Box <T extends Fruit> {
 
     // Реализовать хранение фруктов в коробке.
     // Должны быть доступны следующие возможности
@@ -7,21 +10,28 @@ public class Box /* <FIXME: Указать дженерик> */{
     // Метод, который пересыпает фрукты из текущей коробки в другую коробку
     // Для внутреннего хранения можно использовать например List
 
-//    private List list;
+    private final List<T> list;
 
-    public void add(Object fruit) {
-        // TODO: 24.01.2023
+    public Box() {
+        list = new ArrayList<>();
 
     }
 
-    public double getWeight() {
-        // TODO: 24.01.2023 Просуммировать веса всех фруктов в коробке
-        return 0.0;
+    public void add(T fruit) {
+        list.add(fruit);
+
     }
 
-    public void moveTo(Box /* <FIXME: Указать дженерик> */ anotherBox) {
-        // TODO: 24.01.2023
-        // Пересыпать фрукты из текущей коробки в anotherBox
+    public double getSumWeight() {
+        double sum = 0;
+        for (T t : list) {
+            sum += t.getWeight();
+        }
+        return sum;
     }
 
+    public void moveTo(Box<? super T> anotherBox) {
+        anotherBox.list.addAll(list);
+        list.clear();
+    }
 }
